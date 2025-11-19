@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   🌌 Cosmic Design System with o3didot Font
+   ========================================= */
+
+@font-face {
+  font-family: 'o3didot';
+  src: url('/fonts/o3didot.woff2') format('woff2'),
+       url('/fonts/o3didot.woff') format('woff');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* If you're using Google Fonts or CDN, you can replace the above with:
+@import url('https://fonts.cdnfonts.com/css/o3didot');
+*/
+
+@layer base {
+  :root {
+    /* ===== Cosmic Dark Mode ===== */
+    --background: 235 45% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 235 40% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 235 40% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 100% 60%;
+    --primary-foreground: 235 45% 8%;
+    --secondary: 270 70% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 235 40% 15%;
+    --muted-foreground: 210 30% 70%;
+
+    --accent: 185 85% 55%;
+    --accent-foreground: 235 45% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 235 40% 20%;
+    --input: 235 40% 15%;
+    --ring: 45 100% 60%;
+    --radius: 1rem;
+
+    /* Cosmic Theme Palette */
+    --cosmic-purple: 270 70% 60%;
+    --cosmic-cyan: 185 85% 55%;
+    --cosmic-gold: 45 100% 60%;
+    --cosmic-blue: 235 60% 40%;
+
+    /* Gradients & Glows */
+    --gradient-cosmic: linear-gradient(135deg, hsl(270 70% 60%), hsl(185 85% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 60%), hsl(35 100% 50%));
+    --gradient-nebula: linear-gradient(180deg, hsl(235 45% 8%), hsl(270 40% 12%));
+
+    --glow-primary: 0 0 40px hsl(45 100% 60% / 0.4);
+    --glow-secondary: 0 0 40px hsl(270 70% 60% / 0.4);
+    --glow-accent: 0 0 40px hsl(185 85% 55% / 0.4);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ===== Light Mode ===== */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 235 45% 8%;
+    --card: 210 40% 95%;
+    --card-foreground: 235 45% 8%;
+    --popover: 210 40% 95%;
+    --popover-foreground: 235 45% 8%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 270 60% 50%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 30% 90%;
+    --muted-foreground: 235 30% 30%;
+    --accent: 185 70% 45%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 30% 85%;
+    --input: 210 30% 90%;
+    --ring: 45 100% 50%;
+    --cosmic-purple: 270 60% 50%;
+    --cosmic-cyan: 185 70% 45%;
+    --cosmic-gold: 45 100% 50%;
+    --cosmic-blue: 235 60% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'o3didot', serif, system-ui;
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'o3didot', serif, system-ui;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  * {
+    cursor: auto;
+  }
+
+  button, a, input, textarea, select {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-[hsl(45,100%,60%)] to-[hsl(35,100%,50%)] bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cosmic {
+    @apply bg-gradient-to-r from-[hsl(270,70%,60%)] to-[hsl(185,85%,55%)] bg-clip-text text-transparent;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(45 100% 60% / 0.6),
+                 0 0 40px hsl(45 100% 60% / 0.4);
+  }
+
+  .glass-effect {
+    @apply bg-card/30 backdrop-blur-xl border border-border/50;
+  }
+
+  .cosmic-border {
+    @apply border border-border/50 shadow-[0_0_20px_hsl(270,70%,60%,0.3)];
+  }
+}
